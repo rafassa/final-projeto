@@ -35,4 +35,8 @@ transferir(item: any) {
   console.log('Produto transferido:', item);
 
 }
+
+
+
+
 }

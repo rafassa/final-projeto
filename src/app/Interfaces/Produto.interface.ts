@@ -2,4 +2,5 @@ export interface Produto{
     nome:string;
     preco:number;
     quantidade:number;
+    img:string;
 }

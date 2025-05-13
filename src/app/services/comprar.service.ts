@@ -18,7 +18,7 @@ export class ComprarService {
   }
 
  adicionarProduto(produto: any) {
-  const existe = this.produtosSelecionados.find(p => p.preco ===p.preco)
+  const existe = this.produtosSelecionados.find(p => p.nome === produto.nome)
     if(existe){
       existe.quantidade++
     }
@@ -38,4 +38,10 @@ export class ComprarService {
   obterProdutos() {
     return this.produtosSelecionados;
   }
+
+
+ getTotal(): number {
+  return this.produtosSelecionados.reduce((total, produto) => total + (produto.preco * produto.quantidade), 0);
+}
+
 }

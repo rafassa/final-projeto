@@ -1,29 +1,28 @@
-<!-- Botão para abrir o Offcanvas -->
+
 <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#meuOffcanvas">
-  Abrir Offcanvas
+  Abrir Carrinho
 </button>
 
-<!-- Estrutura do Offcanvas -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="meuOffcanvas" aria-labelledby="meuOffcanvasLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="meuOffcanvasLabel">Carrinho</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4" *ngFor="let produto of produtosSelecionados">
-          <div class="card">
-            <img [src]="" class="card-img-top" alt="Imagem do produto">
-            <div class="card-body">
-              <h5 class="card-title">{{ produto.nome }}</h5>
-              <p class="card-text">Preço: R$ {{ produto.preco }}</p>
-              <p class="card-text">Quantidade: {{ produto.quantidade }}</p>
-              <button (click)="remover(produto)" class="btn btn-danger">Remover</button>
-            </div>
+    <div class="container-fluid">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let produto of produtosSelecionados">
+        <div class="card mb-4 w-100">
+          <img [src]="produto.img" class="card-img-top" alt="Imagem do produto">
+          <div class="card-body w-100">
+            <h5 class="card-title">{{ produto.nome }}</h5>
+            <p class="card-text">Quantidade: {{ produto.quantidade }}</p>
+            <button (click)="remover(produto)" class="btn btn-danger w-100">Remover</button>
           </div>
+         
         </div>
       </div>
+      
     </div>
   </div>
 </div>
+
