@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let produto of produtos">
+      <div class="card">
+        <img [src]="" class="card-img-top" alt="Imagem do card">
+        <div class="card-body">
+          <h5 class="card-title">{{ produto.nome }}</h5>
+          <p class="card-text">Preço: R$ {{ produto.preco }}</p>
+          <button (click)="transferir(produto)" class="btn btn-primary">Adicionar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
