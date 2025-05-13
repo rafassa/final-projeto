@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Produto } from '../Interfaces/Produto.interface';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,6 +9,8 @@ export class ComprarService {
 
 
  private produtosSelecionados: Produto[] = [];
+ private produtoOrigem = new BehaviorSubject<Produto[]>([])
+ produtos = this.produtoOrigem.asObservable();
 
   constructor(private http:HttpClient) { }
 
@@ -17,31 +20,41 @@ export class ComprarService {
 
   }
 
- adicionarProduto(produto: any) {
-  const existe = this.produtosSelecionados.find(p => p.nome === produto.nome)
-    if(existe){
-      existe.quantidade++
-    }
-    else{
-   this.produtosSelecionados.push({ ...produto, quantidade: 1 }); 
+  adicionarItem(item:any){
+    const produtoAtual = this.produtoOrigem.getValue();
+    const produtoQuantidade = produtoAtual.findIndex(i => i.nome === item.nome)
+
+    if(produtoQuantidade !==-1){
+      const atualizar = [...produtoAtual];
+      atualizar[produtoQuantidade].quantidade += 1
+      this.produtoOrigem.next(atualizar)
+    }else{
+      this.produtoOrigem.next([...produtoAtual, {...item, quantidade: 1}])
     }
   }
+ 
 
+  limparCarrinho(item:any){
+      const produtoAtual = this.produtoOrigem.getValue();
+      const index = produtoAtual.findIndex(i => i.nome === item.nome);
+    
+      if (index !== -1) {
+        const atualizar = [...produtoAtual];
+    
+        if (atualizar[index].quantidade > 1) {
+         
+          atualizar[index].quantidade -= 1;
+        } else {
+       
+          atualizar.splice(index, 1);
+        }
+    
+        this.produtoOrigem.next(atualizar);
+      }
+  }
 
-  removerProduto(produto: any) {
-  const index = this.produtosSelecionados.findIndex(p => p.nome === produto.nome);
-    this.produtosSelecionados[index].quantidade > 1 
-      ? this.produtosSelecionados[index].quantidade-- 
-      : this.produtosSelecionados.splice(index, 1);
   
-}
-  obterProdutos() {
-    return this.produtosSelecionados;
-  }
+  
 
-
- getTotal(): number {
-  return this.produtosSelecionados.reduce((total, produto) => total + (produto.preco * produto.quantidade), 0);
-}
 
 }

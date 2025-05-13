@@ -12,13 +12,22 @@ export class CarrinhoComponent {
 
   produtosSelecionados:Produto[]=[]
   service = inject(ComprarService)
-ngOnInit(){
-  this.produtosSelecionados = this.service.obterProdutos()
-  console.log(this.produtosSelecionados)
-}
 
-   remover(produto: any) {
-    this.service.removerProduto(produto);
+  ngOnInit(){
+    this.service.produtos.subscribe(produtos =>{
+      this.produtosSelecionados = produtos
+    })
+  }
+
+  removerItem(produto:any){
+    this.service.limparCarrinho(produto)
+  }
+
+
+  getTotal(): number {
+    return this.produtosSelecionados.reduce((total, item) => {
+      return total + (item.preco * item.quantidade);
+    }, 0);
   }
 }
 

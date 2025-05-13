@@ -16,13 +16,17 @@
           <div class="card-body w-100">
             <h5 class="card-title">{{ produto.nome }}</h5>
             <p class="card-text">Quantidade: {{ produto.quantidade }}</p>
-            <button (click)="remover(produto)" class="btn btn-danger w-100">Remover</button>
+            <button (click)="removerItem(produto)" class="btn btn-danger w-100">Remover</button>
           </div>
          
         </div>
       </div>
       
     </div>
+    <div class="mt-3">
+      <h5>Total: {{ getTotal() | currency:'BRL' }}</h5>
+    </div>
+    <button  class="btn btn-outline-primary">Comprar</button>
   </div>
 </div>
 

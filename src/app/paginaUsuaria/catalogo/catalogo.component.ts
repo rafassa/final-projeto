@@ -30,13 +30,8 @@ adicionar(){
   })
 }
 
-transferir(item: any) {
-  this.service.adicionarProduto(item);
-  console.log('Produto transferido:', item);
-
+enviarProduto(Produto:Produto){
+this.service.adicionarItem(Produto)
 }
-
-
-
 
 }
