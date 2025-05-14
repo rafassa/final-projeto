@@ -9,16 +9,19 @@ const __dirname = dirname(__filename);
 const app = express();
 const PORT = 3000;
 
-// CORS para permitir imagens no navegador
+
 app.use(cors());
 
-// Servir imagens estaticamente
+
+app.use(express.json());
+
+
 app.use('/img', (req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   next();
 }, express.static(join(__dirname, 'public', 'img')));
 
-// Dados simulados
+
 const resposta = [
   {
     nome: "macarrão",
@@ -44,7 +47,19 @@ app.get("/", (req, res) => {
   res.json(resposta);
 });
 
+
+const mercados = [
+  { nome: "mercado1", multiplicador: 1.2 },
+  { nome: "mercado2", multiplicador: 1.5 },
+  { nome: "mercado3", multiplicador: 1.8 }
+];
+
+app.get('/mercados', (req, res) => {
+  res.json(mercados);
+});
+
+
+
 app.listen(PORT, () => {
   console.log(`✅ Servidor rodando na porta ${PORT}`);
-  console.log(`✅ Acesse: http://localhost:${PORT}/img/arroz.png`);
 });

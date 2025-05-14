@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Produto } from '../../Interfaces/Produto.interface';
 import { CommonModule } from '@angular/common';
 import { ComprarService } from '../../services/comprar.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-carrinho',
   imports: [CommonModule],
@@ -12,6 +13,8 @@ export class CarrinhoComponent {
 
   produtosSelecionados:Produto[]=[]
   service = inject(ComprarService)
+  router = inject(Router)
+  total:number=0
 
   ngOnInit(){
     this.service.produtos.subscribe(produtos =>{
@@ -28,6 +31,11 @@ export class CarrinhoComponent {
     return this.produtosSelecionados.reduce((total, item) => {
       return total + (item.preco * item.quantidade);
     }, 0);
+  }
+
+  levarTotal(){
+this.service.pegarValor(this.getTotal())
+this.router.navigate(['/mercado'])
   }
 }
 

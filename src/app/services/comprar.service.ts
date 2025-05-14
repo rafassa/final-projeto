@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Produto } from '../Interfaces/Produto.interface';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class ComprarService {
 
 
- private produtosSelecionados: Produto[] = [];
+
  private produtoOrigem = new BehaviorSubject<Produto[]>([])
  produtos = this.produtoOrigem.asObservable();
+
+ private total = new BehaviorSubject<number>(0)
 
   constructor(private http:HttpClient) { }
 
@@ -53,8 +55,8 @@ export class ComprarService {
       }
   }
 
-  
-  
-
+ pegarValor(valor:number){
+  localStorage.setItem('valor', JSON.stringify(valor))
+ }
 
 }
