@@ -15,15 +15,27 @@ export class CarrinhoComponent {
   service = inject(ComprarService)
   router = inject(Router)
   total:number=0
+  valorRec:string | null=null
 
-  ngOnInit(){
-    this.service.produtos.subscribe(produtos =>{
-      this.produtosSelecionados = produtos
-    })
+  pegarProduto(){
+    const valor = localStorage.getItem("produto");
+    this.produtosSelecionados = valor ? JSON.parse(valor) : [];
   }
+  removerItem(produto: Produto) {
+    const index = this.produtosSelecionados.findIndex(p => p.nome === produto.nome);
 
-  removerItem(produto:any){
-    this.service.limparCarrinho(produto)
+    if (index !== -1) {
+   
+      if (this.produtosSelecionados[index].quantidade > 1) {
+    
+        this.produtosSelecionados[index].quantidade -= 1;
+      } else {
+    
+        this.produtosSelecionados.splice(index, 1);
+      }
+     
+      localStorage.setItem("produto", JSON.stringify(this.produtosSelecionados));
+    }
   }
 
 

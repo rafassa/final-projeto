@@ -22,7 +22,7 @@ adicionar(){
   this.service.adicionar().subscribe({
     next:(item:any)=>{
       this.produtos=  item
-      console.log(this.produtos)
+    
     },
     error:(error)=>{
       console.log(error)
@@ -30,8 +30,9 @@ adicionar(){
   })
 }
 
-enviarProduto(Produto:Produto){
-this.service.adicionarItem(Produto)
+enviarProduto(produto:Produto){
+this.service.PegarLocalInfo(produto)
+console.log(produto)
 }
 
 }
