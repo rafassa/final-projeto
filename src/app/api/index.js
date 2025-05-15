@@ -49,9 +49,16 @@ app.get("/", (req, res) => {
 
 
 const mercados = [
-  { nome: "mercado1", multiplicador: 1.2 },
-  { nome: "mercado2", multiplicador: 1.5 },
-  { nome: "mercado3", multiplicador: 1.8 }
+  { 
+    nome: "mercado1",
+     multiplicador: 1.1 
+    },
+  { nome: "mercado2", 
+    multiplicador: 1.3
+   },
+  { nome: "mercado3",
+     multiplicador: 1.4 
+  }
 ];
 
 app.get('/mercados', (req, res) => {

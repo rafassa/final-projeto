@@ -1,92 +1,58 @@
-/* Estilizando o botão de carrinho */
-.btn-warning {
-  background-color: #ff9900;
-  border-color: #e68a00;
+
+.animated-button {
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.btn-warning:hover {
-  background-color: #e68a00;
-  border-color: #cc7a00;
+.animated-button:hover {
+  background-color: #d39e00;
+  transform: scale(1.05);
 }
 
-.offcanvas {
-  transition: transform 0.3s ease-in-out;
-  max-width: 400px; /* Garantir um tamanho adequado para o offcanvas */
+
+.animated-offcanvas {
+  transition: transform 0.4s ease-in-out;
 }
 
-.offcanvas-header {
-  border-bottom: 1px solid #ccc;
+.offcanvas.show {
+  transform: translateX(0);
 }
 
-.card {
-  transition: box-shadow 0.3s ease-in-out;
-  height: 100%; /* Garantir que o cartão ocupe toda a altura disponível */
+
+.animated-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.card:hover {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+.animated-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card-body {
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.animated-text {
+  animation: fadeIn 0.6s ease-in-out;
 }
 
-.card-img-top {
-  object-fit: cover;
-  height: 200px; /* Ajustando a altura da imagem */
+.animated-total {
+  animation: fadeIn 0.8s ease-in-out;
 }
 
-.btn-danger {
-  background-color: #ff6347;
-  border-color: #ff6347;
+
+.animated-header {
+  background: linear-gradient(45deg, #007bff, #6610f2);
+  transition: all 0.3s ease-in-out;
 }
 
-.btn-danger:hover {
-  background-color: #e55347;
-  border-color: #e55347;
+.animated-header:hover {
+  filter: brightness(1.1);
 }
 
-.btn-outline-primary {
-  border-color: #007bff;
-  color: #007bff;
-}
 
-.btn-outline-primary:hover {
-  background-color: #007bff;
-  color: #fff;
-}
-
-/* Estilizando o título no offcanvas */
-.offcanvas-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-/* Adicionando mais sombra no offcanvas */
-.offcanvas-end {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilizando o total e botão Comprar */
-.mt-4 h5 {
-  font-weight: 600;
-}
-
-.btn-lg {
-  font-size: 1.2rem;
-}
-
-/* Garantir que os elementos dentro do offcanvas fiquem com espaçamento adequado */
-.offcanvas-body {
-  padding: 1rem;
-}
-
-/* Garantindo que a área do produto ocupe mais espaço */
-.card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

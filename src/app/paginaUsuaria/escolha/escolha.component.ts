@@ -34,11 +34,16 @@ export class EscolhaComponent {
       this.service.getMercados().subscribe((mercados: Mercado[]) => {
         this.resultados = mercados.map(mercado => ({
           mercado: mercado.nome,
-          valorFinal: +(this.valor * mercado.multiplicador).toFixed(2)
+          valorFinal: +(this.valor * mercado.multiplicador).toFixed(0)
         }));
       });
     };
   
+
+
+    pagar(){
+      this.router.navigate(['/pagamento'])
+    }
   }
 
 
