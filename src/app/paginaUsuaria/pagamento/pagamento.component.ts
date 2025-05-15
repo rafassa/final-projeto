@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-pagamento',
@@ -10,13 +10,13 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class PagamentoComponent {
 
   form = new FormGroup({
-    nome: new FormControl(),
-    cpf: new FormControl(),
-    pagamento: new FormControl(),
-    cartao: new FormControl(),
-    vencimento: new FormControl(),
-    cvv: new FormControl(),
-    endereco: new FormControl(),
+    nome: new FormControl([Validators.required, Validators.minLength(15), Validators.maxLength(50)]),
+    cpf: new FormControl([Validators.required , Validators.minLength(15), Validators.maxLength(50)]),
+    pagamento: new FormControl([Validators.required , Validators.minLength(15), Validators.maxLength(50)]),
+    cartao: new FormControl([Validators.required , Validators.minLength(15), Validators.maxLength(50)]),
+    vencimento: new FormControl([Validators.required , Validators.minLength(15), Validators.maxLength(50)]),
+    cvv: new FormControl([Validators.required , Validators.minLength(15), Validators.maxLength(50)]),
+    endereco: new FormControl([Validators.required , Validators.minLength(15), Validators.maxLength(50)]),
   })
 
   mandarInfo(){
