@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { ComprarService } from '../../services/comprar.service';
 
 
+
 @Component({
   selector: 'app-escolha',
   standalone: true,
@@ -18,11 +19,10 @@ export class EscolhaComponent {
   service = inject(MercadosService);
   router = inject(Router)
   serviceCarrinho = inject(ComprarService)
-
   valor: number = 0;
   mercadoSelecionado: string = '';
   valorSalvo:number = 0
-
+  valorSelecionado:number = 0
 
   resultados: { mercado: string; valorFinal: number; }[] = [];
 
@@ -42,7 +42,14 @@ export class EscolhaComponent {
 
 
     pagar(){
-      this.router.navigate(['/pagamento'])
+      this.service.salvarValor(this.valorSelecionado)
+      this.router.navigate(['/compra'])
+    }
+
+
+    pegarResultado(valor:any){
+      this.valorSelecionado = valor
+     
     }
   }
 

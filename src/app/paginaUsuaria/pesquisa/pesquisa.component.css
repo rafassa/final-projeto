@@ -1,4 +1,4 @@
-/* 💡 Estilizando a barra de pesquisa */
+
 .input-group {
   transition: all 0.3s ease-in-out;
 }
@@ -7,17 +7,16 @@
   transform: scale(1.02);
 }
 
-/* 🔍 Efeito no botão de pesquisa */
+
 #search-button {
   transition: background-color 0.3s ease, transform 0.2s ease-in-out;
 }
 
 #search-button:hover {
-  background-color: #0056b3; /* Azul mais escuro */
+  background-color: #0056b3; 
   transform: scale(1.05);
 }
 
-/* 🛒 Efeito ao abrir o carrinho */
 .offcanvas {
   transition: transform 0.4s ease-in-out;
 }
@@ -26,7 +25,7 @@
   transform: translateX(0);
 }
 
-/* 🏷️ Animação nos cards de produtos */
+
 .card {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
@@ -36,17 +35,16 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* 🎯 Botão 'Adicionar ao Carrinho' */
+
 .btn-success {
   transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .btn-success:hover {
-  background-color: #218838; /* Verde escuro */
+  background-color: #218838; 
   transform: translateY(-2px);
 }
 
-/* 🛍️ Botão 'Finalizar Compra' */
 .btn-outline-primary {
   transition: all 0.3s ease-in-out;
 }

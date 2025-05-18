@@ -1,18 +1,10 @@
-<div class="container mt-3">
-  <!-- Pesquisa no topo centralizado -->
-  <div class="row justify-content-center">
-    <div class="col-md-6 text-center">
-      <app-pesquisa></app-pesquisa>
-    </div>
-  </div>
-
-  <!-- Catálogo no meio e Carrinho à direita -->
-  <div class="row mt-4">
-    <div class="col-md-8 d-flex justify-content-center">
-      <app-catalogo></app-catalogo>
-    </div>
-    <div class="col-md-4 d-flex justify-content-end">
-      <app-carrinho></app-carrinho>
-    </div>
+<div class="d-flex flex-column w-100 align-items-center col-lg">
+  <div class=" d-flex align-items-center justify-content-center">
+  <app-pesquisa></app-pesquisa>
+ </div>
+ <div class="d-flex flex-row-reverse flex-wrap w-100">
+  <app-carrinho id="carrinho" class="p-2"></app-carrinho>
+    
+  <app-catalogo class="w-100" ></app-catalogo> 
   </div>
 </div>

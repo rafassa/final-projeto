@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './paginaUsuaria/home/home.component';
 import { MercadosComponent } from './paginaUsuaria/mercados/mercados.component';
-import { PagamentoComponent } from './paginaUsuaria/pagamento/pagamento.component';
+import { BoletoComponent } from './paginaUsuaria/boleto/boleto.component';
+import { CompraComponent } from './paginaUsuaria/compra/compra.component';
 
 export const routes: Routes = [
 
@@ -20,7 +21,11 @@ export const routes: Routes = [
         component:MercadosComponent
     },
     {
-        path:'pagamento',
-        component:PagamentoComponent
+        path:'compra',
+        component:CompraComponent
+    },
+    {
+        path:'boleto',
+        component:BoletoComponent
     }
 ];

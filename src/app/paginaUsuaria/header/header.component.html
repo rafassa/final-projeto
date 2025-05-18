@@ -1,1 +1,22 @@
-<p>header works!</p>
+<nav class="navbar navbar-dark bg-primary px-3 d-flex">
+    <a class="navbar-brand" href="/">
+        <i class="bi bi-cart-check"></i> Mercado
+    </a>
+    <ul class="navbar-nav flex-row d-flex">
+        <li class="nav-item mx-2 d-flex">
+            <a class="nav-link active animate-link d-flex align-items-center" routerLink="/">
+                <i class="bi bi-house-door"></i> <span class="d-none d-md-block">Home</span>
+            </a>
+        </li>
+        <li class="nav-item mx-2">
+            <a class="nav-link animate-link d-flex align-items-center" routerLink="/pagamento">
+                <i class="bi bi-wallet2"></i> <span class="d-none d-md-block">Pagamento</span>
+            </a>
+        </li>
+        <li class="nav-item mx-2">
+            <a class="nav-link animate-link d-flex align-items-center" routerLink="/boleto">
+                <i class="bi bi-receipt"></i> <span class="d-none d-md-block">Boleto</span>
+            </a>
+        </li>
+    </ul>
+</nav>
