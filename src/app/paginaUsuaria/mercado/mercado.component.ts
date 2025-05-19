@@ -6,8 +6,8 @@ import { CarrinhoComponent } from '../carrinho/carrinho.component';
 @Component({
   selector: 'app-home',
   imports: [PesquisaComponent, CatalogoComponent, CarrinhoComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  templateUrl: './mercado.component.html',
+  styleUrl: './mercado.component.css'
 })
 export class HomeComponent {
 
